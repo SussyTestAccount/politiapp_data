@@ -1,3 +1,5 @@
+<!--General Styles-->
+
 body {
   background-color: red;
 }
@@ -13,6 +15,8 @@ h3{
 p {
   color: yellow;
 }
+
+<!--Dropdown menu-->
 
 .dropdown {
     position: relative;
@@ -43,4 +47,28 @@ p {
 
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
+}
+
+<!--Candidate Summary-->
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+}
+
+#response {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
 }
