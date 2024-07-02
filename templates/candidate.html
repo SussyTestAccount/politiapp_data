@@ -22,8 +22,16 @@
                 },
                 body: JSON.stringify({ user_input: userInput })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
             .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
                 console.log(data); // Log the response to see if it's coming through
                 if (data.choices && data.choices.length > 0) {
                     document.getElementById('response').innerText = data.choices[0].text;
@@ -33,7 +41,7 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                document.getElementById('response').innerText = "An error occurred";
+                document.getElementById('response').innerText = `An error occurred: ${error.message}`;
             });
         });
     </script>
