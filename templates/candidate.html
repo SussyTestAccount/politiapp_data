@@ -11,7 +11,7 @@
         <button type="submit">Send</button>
     </form>
     <div id="response"></div>
-    <script>
+        <script>
         document.getElementById('chat-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const userInput = document.getElementById('user-input').value;
@@ -24,7 +24,9 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.json().then(error => {
+                        throw new Error(error.error);
+                    });
                 }
                 return response.json();
             })
@@ -46,14 +48,14 @@
         });
     </script>
 
-      <div class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-            <a href="/home">Back to home</a>
-            <a href="/candidate">District Candidate Summaries</a>
-            <a href="/trivia">Political Trivia</a>
-        </div>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+          <a href="/home">Back to home</a>
+          <a href="/candidate">District Candidate Summaries</a>
+          <a href="/trivia">Political Trivia</a>
       </div>
+    </div>
 
-    </body>
-  </html> 
+  </body>
+</html> 
