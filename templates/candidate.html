@@ -1,61 +1,49 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
-    </head>
-    <body>
-
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
     <h1>District Candidate Summary</h1>
-        <form id="chat-form">
-      <input type="text" id="user-input" name="user_input" placeholder="Type your message here...">
-      <button type="submit">Send</button>
-  </form>
-  <div id="response"></div>
-      <script>
-      document.getElementById('chat-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-          const userInput = document.getElementById('user-input').value;
-          fetch('/chat', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ user_input: userInput })
-          })
-          .then(response => {
-              if (!response.ok) {
-                  return response.json().then(error => {
-                      throw new Error(error.error);
-                  });
-              }
-              return response.json();
-          })
-          .then(data => {
-              if (data.error) {
-                  throw new Error(data.error);
-              }
-              console.log(data); // Log the response to see if it's coming through
-              if (data.choices && data.choices.length > 0) {
-                  document.getElementById('response').innerText = data.choices[0].text;
-              } else {
-                  document.getElementById('response').innerText = "No response received";
-              }
-          })
-          .catch(error => {
-              console.error('Error:', error);
-              document.getElementById('response').innerText = `An error occurred: ${error.message}`;
-          });
-      });
-  </script>
+    <form id="chat-form" action="/api/chat" method="POST">
+        <input type="text" id="user-input" name="user_input" placeholder="Type your message here...">
+        <button type="button" onclick="sendDataToAPI()">Send</button>
+    </form>
+    <div id="response"></div>
 
-  <div class="dropdown">
-    <button class="dropbtn">Menu</button>
-    <div class="dropdown-content">
-        <a href="/home">Back to home</a>
-        <a href="/candidate">District Candidate Summaries</a>
-        <a href="/trivia">Political Trivia</a>
+    <script>
+        function sendDataToAPI() {
+            const userInput = document.getElementById('user-input').value;
+            const data = { user_input: userInput };
+
+            fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                document.getElementById('response').innerText = data.response || 'No response received';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('response').innerText = `An error occurred: ${error.message}`;
+            });
+        }
+    </script>
+
+    <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+            <a href="/home">Back to home</a>
+            <a href="/candidate">District Candidate Summaries</a>
+            <a href="/trivia">Political Trivia</a>
+        </div>
     </div>
-  </div>
-
 </body>
-</html> 
+</html>
