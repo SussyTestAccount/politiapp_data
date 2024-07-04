@@ -12,40 +12,22 @@
 
       <h1>Political Trivia!</h1>
         <div class="container">
-          {% if questions %}
-              <h1>Welcome to the Trivia App</h1>
-              <ul>
-                  {% for question in questions %}
-                      <li><a href="{{ url_for('question', question_id=question.id) }}">{{ question.question }}</a></li>
-                  {% endfor %}
-              </ul>
-          {% elif question %}
-              <h2>{{ question.question }}</h2>
-              <form method="POST">
-                  {% for option in question.options %}
-                      <input type="radio" name="option" value="{{ option }}" required> {{ option }}<br>
-                  {% endfor %}
-                  <input type="submit" value="Submit">
-              </form>
-  
-              {% if correct is not none %}
-                  {% if correct %}
-                      <p>Correct!</p>
-                  {% else %}
-                      <p>Incorrect! The correct answer is {{ question.answer }}.</p>
-                  {% endif %}
-                  <a href="{{ url_for('index') }}">Back to Home</a>
-              {% endif %}
-          {% endif %}
-      </div>
-      <div class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-            <a href="/home">Back to home</a>
-            <a href="/candidate">District Candidate Summaries</a>
-            <a href="/map">Voting Map</a>
+        <h1>Welcome to the Trivia App</h1>
+        <ul id="question-list">
+            <!-- Questions will be loaded here -->
+        </ul>
+        <div id="question-container" style="display:none;">
+            <h2 id="question-text"></h2>
+            <form id="question-form">
+                <div id="options-container"></div>
+                <input type="submit" value="Submit">
+            </form>
+            <p id="feedback" style="display:none;"></p>
+            <a href="#" id="back-link" style="display:none;">Back to Home</a>
         </div>
-      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='triviaScript.js') }}"></script>
 
     </body>
   </html> 
