@@ -1,11 +1,43 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia App</title>
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='triviaStyles.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+      
     </head>
     <body>
 
       <h1>Political Trivia!</h1>
+        <div class="container">
+          {% if questions %}
+              <h1>Welcome to the Trivia App</h1>
+              <ul>
+                  {% for question in questions %}
+                      <li><a href="{{ url_for('question', question_id=question.id) }}">{{ question.question }}</a></li>
+                  {% endfor %}
+              </ul>
+          {% elif question %}
+              <h2>{{ question.question }}</h2>
+              <form method="POST">
+                  {% for option in question.options %}
+                      <input type="radio" name="option" value="{{ option }}" required> {{ option }}<br>
+                  {% endfor %}
+                  <input type="submit" value="Submit">
+              </form>
+  
+              {% if correct is not none %}
+                  {% if correct %}
+                      <p>Correct!</p>
+                  {% else %}
+                      <p>Incorrect! The correct answer is {{ question.answer }}.</p>
+                  {% endif %}
+                  <a href="{{ url_for('index') }}">Back to Home</a>
+              {% endif %}
+          {% endif %}
+      </div>
       <div class="dropdown">
         <button class="dropbtn">Menu</button>
         <div class="dropdown-content">
