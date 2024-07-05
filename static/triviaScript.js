@@ -44,7 +44,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({question_id: questionId, selected_option: selectedOption}),
             success: function(response) {
-                $('#feedback').show().text(response.correct ? 'Correct!' : `Incorrect! The correct answer is ${response.answer}.`);
+                $('#feedback').show().text(response.correct ? 'Correct!' : `Incorrect! The correct answer is "${response.answer}".`);
                 $('#back-link').show().on('click', function() {
                     $('#question-container').hide();
                     $('#feedback').hide();
