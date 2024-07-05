@@ -2,7 +2,7 @@ $(document).ready(function() {
     const triviaQuestions = [
         {"id": 1, "question": "What was the first Capitol of the US?", "options": ["Beijing", "New York", "Washington D.C.", "Philadelphia"], "answer": "Philadelphia"},
         {"id": 2, "question": "How many rights are in the Bill of Rights?", "options": ["1", "5", "10", "15"], "answer": "10"},
-        {"id": 3, "question": "What scandal caused President Nixon to resign?", "options": ["Gamergate", "Watergate", "Zimmermann Telegram", "Credit Mobilier"], "answer": "Watergate"}
+        {"id": 3, "question": "What scandal caused President Nixon to resign?", "options": ["Gamergate", "Watergate", "Zimmermann Telegram", "Credit Mobilier"], "answer": "Watergate"},
         {"id": 4, "question": "Which 5 words head the US Constitution?", "options": ["A spirit is haunting Europe...", "We, the citizens of America...", "Four score and seven years...", "We the people of the..."], "answer": "We the people of the..."},
         {"id": 5, "question": "What is it called when the President refuses to accept a bill?", "options": ["Vetoing", "Filibuster", "Cleanse", "Reject"], "answer": "Vetoing"},
         {"id": 6, "question": "Who was a notable 'muckraker' during the political Progressive Era?", "options": ["Jacob Riis", "Janice Rizz", "Joe Rogan", "Jane Riemann"], "answer": "Jacob Riis"}
