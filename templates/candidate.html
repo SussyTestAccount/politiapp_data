@@ -10,9 +10,7 @@
         <button type="button" onclick="sendDataToAPI()">Send</button>
     </form>
     <div id="response"></div>
-    <script>
-        
-    </script>
+    <script src="{{ url_for('static', filename='script/chatSearchScript.js') }}"></script>
     <script>
         function sendDataToAPI() {
             const userInput = document.getElementById('user-input').value;
