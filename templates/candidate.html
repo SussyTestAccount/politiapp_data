@@ -42,7 +42,7 @@
         submit_btn.addEventListener("click", async (e) => {
             e.preventDefault();
 
-            const response = await fetch("/answer", {
+            const response = await fetch("/chatting", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({message: input.value})
