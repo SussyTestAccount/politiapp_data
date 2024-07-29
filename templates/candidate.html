@@ -29,7 +29,7 @@
 <body>
     <div class="container mt-5">
         <h1>Input to Text Area</h1>
-        <form action="{{ url_for('submit') }}" method="POST">
+        <form action="{{ url_for('sub') }}" method="POST">
             <div class="form-group">
                 <label for="user_input">Enter Text:</label>
                 <input type="text" class="form-control" id="user_input" name="user_input" required>
@@ -45,14 +45,14 @@
     </div>
     <form>
         <textarea id="input" placeholder="Enter your message" cols="50"></textarea>
-        <button type="submit">Send</button>
+        <button id="gptSubmit" type="submit">Send</button>
     </form>
     <pre id="body"></pre>
     
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         const body = document.getElementById('body');
-        const submit_btn = document.querySelector('button');
+        const submit_btn = document.getElementById('gpt_submit');
         const input = document.getElementById('input');
 
         submit_btn.addEventListener("click", async (e) => {
