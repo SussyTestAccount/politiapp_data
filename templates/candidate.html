@@ -27,6 +27,22 @@
     </style>
 </head>
 <body>
+    <div class="container mt-5">
+        <h1>Input to Text Area</h1>
+        <form action="{{ url_for('submit') }}" method="POST">
+            <div class="form-group">
+                <label for="user_input">Enter Text:</label>
+                <input type="text" class="form-control" id="user_input" name="user_input" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% if user_input %}
+            <div class="mt-4">
+                <label for="result_textarea">Your Input:</label>
+                <textarea class="form-control" id="result_textarea" rows="5">{{ user_input }}</textarea>
+            </div>
+        {% endif %}
+    </div>
     <form>
         <textarea id="input" placeholder="Enter your message" cols="50"></textarea>
         <button type="submit">Send</button>
