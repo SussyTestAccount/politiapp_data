@@ -33,26 +33,6 @@ body {
     display: block;
 }
 
-.controlled::after {
-    
-}
-
-#toggle:checked ~ .controlled::after {
-    display: block;
-}
-
-label {
-    background: #A5D6A7;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-}
-
-.visually-hidden {
-    position: absolute;
-    left: -100vw;
-    
-    /* Note, you may want to position the checkbox over top the label and set the opacity to zero instead. It can be better for accessibilty on some touch devices for discoverability. */
-}
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
