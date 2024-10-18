@@ -34,7 +34,7 @@ body {
 }
 
 .controlled::after {
-    display: none;
+    
 }
 
 #toggle:checked ~ .controlled::after {
