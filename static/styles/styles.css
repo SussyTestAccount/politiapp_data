@@ -33,6 +33,10 @@ body {
     display: block;
 }
 
+.dropdown:target .dropdown-content{
+  display: block;
+} 
+
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
