@@ -33,6 +33,10 @@ body {
     display: block;
 }
 
+.controlled::after {
+    display: none;
+}
+
 #toggle:checked ~ .controlled::after {
     display: block;
 }
