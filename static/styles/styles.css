@@ -33,7 +33,7 @@ body {
     display: block;
 }
 
-#toggle:checked ~ .control-me::after {
+#toggle:checked ~ .controlled::after {
     display: block;
 }
 
