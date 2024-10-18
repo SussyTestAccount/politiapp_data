@@ -13,22 +13,24 @@
         <iframe src="https://verify.vote.org/?partner=111111&campaign=free-tools" width="100%" marginheight="0" frameborder="0" id="frame3" scrollable ="no"></iframe><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js"></script><script type="text/javascript">iFrameResize({ log:true, checkOrigin:false});</script>
       </div>
       <script>
-        var x = document.getElementById("controlled");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
+        function toggle(){
+          var x = document.getElementById("controlled");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
         }
       </script>
       <a href="/home">Back to home></a>
       <div class="dropdown">
         <button class="dropbtn">Menu</button>
         <div class="dropdown-content">
-                <hr>
-                <a href="/home">Back to Home</a>
-                <a href="/tutorial">Voting Tutorial</a>
-                <a href="/candidate">District Candidate Summaries</a>
-                <a href="/trivia">Political Trivia</a>
+          <hr>
+          <a href="/home">Back to Home</a>
+          <a href="/tutorial">Voting Tutorial</a>
+          <a href="/candidate">District Candidate Summaries</a>
+          <a href="/trivia">Political Trivia</a>
         </div>
     </div>
     </body>
